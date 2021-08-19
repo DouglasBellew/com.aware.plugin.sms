@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="status_plugin_sms"
+            android:persistent="true"
+            android:summary="Enable/disable plugin"
+            android:title="Active"/>
+    <CheckBoxPreference
+            android:defaultValue="false"
+            android:dependency="status_plugin_sms"
+            android:key="plugin_sms_send_received_data"
+            android:persistent="true"
+            android:summary="Should the plugin include received data as well as sent data? (Check to include, default 'false')"
+            android:title="Transfer Received data"
+            android:selectable="false"/>
+    <CheckBoxPreference
+            android:defaultValue="false"
+            android:dependency="status_plugin_sms"
+            android:key="plugin_sms_send_full_data"
+            android:persistent="true"
+            android:summary="Send all data for selected time frame. (Should be checked initially, will uncheck upon completion.  Reselect to resend data."
+            android:title="Send All Data Within Date Range"
+            android:selectable="false"/>
+    <EditTextPreference
+            android:dependency="status_plugin_sms"
+            android:key="plugin_sms_start_date"
+            android:persistent="true"
+            android:summary="Start date for pulling sms and mms data. If left empty, it will pull all sms and mms data on the phone from before the end date. If both start and end dates are empty, it will pull all data."
+            android:title="Start Date (YYYY-MM-DD)"
+            android:selectable="false"/>
+    <EditTextPreference
+            android:dependency="status_plugin_sms"
+            android:key="plugin_sms_end_date"
+            android:persistent="true"
+            android:summary="End date for pulling sms and mms data. If left empty, it will pull all sms and mms data on the phone from after the start date.  If both start and end dates are empty, it will pull all data."
+            android:title="End Date (YYYY-MM-DD)"
+            android:selectable="false"/>
+    <EditTextPreference
+            android:dependency="status_plugin_sms"
+            android:key="plugin_sms_last_sync_date"
+            android:persistent="true"
+            android:summary="Date of Last Message Sync with Server (YYYY-MM-DDTHH:MM:SS.sss)"
+            android:title="Last Sever Sync Time"
+            android:selectable="false"/>
+    <EditTextPreference
+            android:dependency="status_plugin_sms"
+            android:key="plugin_sms_sync_frequency"
+            android:persistent="true"
+            android:summary="How often to sync messages with Server (in minutes)"
+            android:title="Server data Sync Frequency"
+            android:defaultValue="1"
+            android:selectable="false"/>
+</PreferenceScreen>
